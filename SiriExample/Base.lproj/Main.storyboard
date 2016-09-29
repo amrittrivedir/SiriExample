@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="tLJ-9d-Tdt">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="6dU-oo-mGD">
+            <objects>
+                <viewController id="tLJ-9d-Tdt" customClass="ViewController" customModule="SiriExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QJ2-Yg-Sqp"/>
+                        <viewControllerLayoutGuide type="bottom" id="AWs-RN-Y8b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VsX-rC-meb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Oa-PV-guN">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="E64-RR-AH6"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="tLJ-9d-Tdt" id="i6K-Wb-WeS"/>
+                                    <outlet property="delegate" destination="tLJ-9d-Tdt" id="ePw-BO-ndx"/>
+                                </connections>
+                            </pickerView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="1e8-Dp-cxP">
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scX-m3-9Ch">
+                                <color key="backgroundColor" red="0.16648837920000001" green="0.52587974069999999" blue="0.75460344550000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="c34-fn-giY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Start Recording!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="recordBtnTapped" destination="tLJ-9d-Tdt" eventType="touchUpInside" id="Udq-aF-xP8"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.51922085661200112" green="0.38101422065720314" blue="0.78032494014894904" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="5Oa-PV-guN" firstAttribute="top" secondItem="QJ2-Yg-Sqp" secondAttribute="bottom" id="BIh-ga-oeq"/>
+                            <constraint firstItem="scX-m3-9Ch" firstAttribute="leading" secondItem="VsX-rC-meb" secondAttribute="leadingMargin" id="Pnk-me-kHc"/>
+                            <constraint firstItem="AWs-RN-Y8b" firstAttribute="top" secondItem="scX-m3-9Ch" secondAttribute="bottom" constant="20" id="ZKl-QX-7nc"/>
+                            <constraint firstItem="1e8-Dp-cxP" firstAttribute="top" secondItem="5Oa-PV-guN" secondAttribute="bottom" constant="8" id="ZYN-X9-mhW"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="scX-m3-9Ch" secondAttribute="trailing" id="Zbc-TS-qRD"/>
+                            <constraint firstAttribute="trailing" secondItem="5Oa-PV-guN" secondAttribute="trailing" id="e5N-fO-VuZ"/>
+                            <constraint firstItem="1e8-Dp-cxP" firstAttribute="leading" secondItem="VsX-rC-meb" secondAttribute="leadingMargin" id="foT-2M-Y9I"/>
+                            <constraint firstItem="1e8-Dp-cxP" firstAttribute="trailing" secondItem="VsX-rC-meb" secondAttribute="trailingMargin" id="gro-zP-peW"/>
+                            <constraint firstItem="scX-m3-9Ch" firstAttribute="top" secondItem="1e8-Dp-cxP" secondAttribute="bottom" constant="8" id="hK5-Jr-IxH"/>
+                            <constraint firstItem="5Oa-PV-guN" firstAttribute="leading" secondItem="VsX-rC-meb" secondAttribute="leading" id="mL1-u5-1dF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="picker" destination="5Oa-PV-guN" id="ypm-0h-sBf"/>
+                        <outlet property="recordBtn" destination="scX-m3-9Ch" id="d17-uN-UdV"/>
+                        <outlet property="textView" destination="1e8-Dp-cxP" id="1LT-ZO-y2v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HRi-ZC-7tH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="186.65667166416793"/>
+        </scene>
+    </scenes>
+</document>
