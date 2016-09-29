@@ -1,4 +1,5 @@
-# SiriExample
+
+![Image of Yaktocat](https://github.com/amrittrivedir/SiriExample/blob/master/gh_banner.png)
 
 ##Building a Speech-to-Text App Using Siri in iOS 10.
 
@@ -16,6 +17,5 @@ To use the Speech framework, you have to first import it and adopt the SFSpeechR
 ##Handle Authorization
 
 Before using the speech framework for speech recognition, you have to first ask for users’ permission because the recognition doesn’t happen just locally on the iOS device but Apple’s servers. All the voice data is transmitted to Apple’s backend for processing. Therefore, it is mandatory to get the user’s authorization.
-
-<br/>    
+<br />    
 Till now you learned how to set up the Speech kit in your project and it’s basic necessary things. You will find more details in our demo project in github. Please check out it from here.
