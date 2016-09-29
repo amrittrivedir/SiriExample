@@ -14,8 +14,53 @@ We will build one simple app to to recognize words from speech kit framework. We
 
 To use the Speech framework, you have to first import it and adopt the SFSpeechRecognizerDelegate protocol. So let’s import the framework, and add its protocol to the ViewController class. Now your ViewController.swift should look like this: 
 
+```
+import UIKit
+import Speech
+ 
+class ViewController: UIViewController, SFSpeechRecognizerDelegate {
+        
+    @IBOutlet weak var textView: UITextView!
+    @IBOutlet weak var microphoneButton: UIButton!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()        
+    }
+ 
+    @IBAction func microphoneTapped(_ sender: AnyObject) { 
+    } 
+}
+```
+
 ##Handle Authorization
 
 Before using the speech framework for speech recognition, you have to first ask for users’ permission because the recognition doesn’t happen just locally on the iOS device but Apple’s servers. All the voice data is transmitted to Apple’s backend for processing. Therefore, it is mandatory to get the user’s authorization.
+
+```
+override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        SFSpeechRecognizer.requestAuthorization { authStatus in            
+            OperationQueue.main.addOperation {
+                switch authStatus {
+                case .authorized:
+                    self.recordBtn.isEnabled = true
+                    
+                case .denied:
+                    self.recordBtn.isEnabled = false
+                    self.recordBtn.setTitle("User denied access to speech recognition", for: .disabled)
+                    
+                case .restricted:
+                    self.recordBtn.isEnabled = false
+                    self.recordBtn.setTitle("Speech recognition restricted on this device", for: .disabled)
+                    
+                case .notDetermined:
+                    self.recordBtn.isEnabled = false
+                    self.recordBtn.setTitle("Speech recognition not yet authorized", for: .disabled)
+                }
+            }
+        }
+    }
+```
 <br />    
 Till now you learned how to set up the Speech kit in your project and it’s basic necessary things. You will find more details in our demo project in github. Please check out it from here.
